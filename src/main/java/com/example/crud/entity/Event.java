@@ -1,14 +1,19 @@
 package com.example.crud.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="event_info")
 public class Event {
 
 	@Id
@@ -20,16 +25,18 @@ public class Event {
     private String eventName;
 
     @Column(name = "create_date")
-    private Timestamp createDate;
+    private Date createDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "start_time")
     private Timestamp startTime;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    
     @Column(name = "end_time")
     private Timestamp endTime;
 
     @Column(name = "modify_date")
-    private Timestamp modifyDate;
+    private Date modifyDate;
     
     @Column(name = "is_active", length = 30)
     private String isActive;
@@ -50,12 +57,12 @@ public class Event {
 		this.eventName = eventName;
 	}
 
-	public Timestamp getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Timestamp createDate) {
-		this.createDate = createDate;
+	public void setCreateDate(Date date) {
+		this.createDate = (Date) date;
 	}
 
 	public Timestamp getStartTime() {
@@ -74,11 +81,11 @@ public class Event {
 		this.endTime = endTime;
 	}
 
-	public Timestamp getModifyDate() {
+	public Date getModifyDate() {
 		return modifyDate;
 	}
 
-	public void setModifyDate(Timestamp modifyDate) {
+	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
 

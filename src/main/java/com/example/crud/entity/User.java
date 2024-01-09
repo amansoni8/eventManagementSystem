@@ -1,12 +1,16 @@
 package com.example.crud.entity;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="user_info")
 public class User {
 	
  @Id
@@ -21,16 +25,16 @@ public class User {
  private String lastName;
 
  @Column(name = "email", length = 30)
- private String email;
+ private String email; 
 
  @Column(name = "contact")
- private Long contact;
+ private long contact;
 
  @Column(name = "create_date")
- private int createDate;
+ private Date createDate;
 
  @Column(name = "modified_date")
- private int modifiedDate;
+ private Date modifiedDate;
 
  @Column(name = "password", length = 30)
  private String password;
@@ -72,28 +76,28 @@ public void setEmail(String email) {
 	this.email = email;
 }
 
-public Long getContact() {
+public long getContact() {
 	return contact;
 }
 
-public void setContact(Long contact) {
+public void setContact(long contact) {
 	this.contact = contact;
 }
 
-public int getCreateDate() {
+public Date getCreateDate() {
 	return createDate;
 }
 
-public void setCreateDate(int createDate) {
+public void setCreateDate(Date createDate) {
 	this.createDate = createDate;
 }
 
-public int getModifiedDate() {
+public Date getModifiedDate() {
 	return modifiedDate;
 }
 
-public void setModifiedDate(int modifiedDate) {
-	this.modifiedDate = modifiedDate;
+public void setModifiedDate(Date date) {
+	this.modifiedDate = date;
 }
 
 public String getPassword() {
