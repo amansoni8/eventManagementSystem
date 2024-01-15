@@ -54,12 +54,43 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUser(User user, Integer userId) {
 		User u = userRepository.findById(userId).get();
+		
 		if(user.getFirstName() != null) {
 			u.setFirstName(user.getFirstName());
 		}
 		u.setModifiedDate(new Date());
+		
+		if(user.getContact() !=0L) {
+			u.setContact(user.getContact());
+		}
+		u.setModifiedDate(new Date());
+		
+		if(user.getCreateDate()!= null)
+		{
+			u.setCreateDate(user.getCreateDate());
+		}
+		u.setModifiedDate(new Date());
+		
+		if(user.getEmail() != null)
+		{
+			u.setEmail(user.getEmail());
+		}
+		u.setModifiedDate(new Date());
+		
+		if(user.getLastName() != null) {
+			u.setLastName(user.getLastName());
+		}
+		u.setModifiedDate(new Date());
+		
+		if(user.getPassword() !=null) {
+			u.setPassword(user.getPassword());
+		}
+		u.setModifiedDate(new Date());
+		
 		 userRepository.save(u);
 	}
+	
+	
 
 	@Override
 	public List<User> getAllUsers() {

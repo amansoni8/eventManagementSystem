@@ -70,7 +70,24 @@ public class EventServiceImpl implements EventService {
 			e.setEventName(event.getEventName());
 		}
 		e.setModifyDate(new Date());
-		 eventRepository.save(event);
+		
+		if(event.getCreateDate() != null) {
+			e.setCreateDate(event.getCreateDate());
+		}
+		e.setModifyDate(new Date());
+		
+		if(event.getEndTime() != null) {
+			e.setEndTime(event.getEndTime());
+		}
+		e.setModifyDate(new Date());
+		
+		if(event.getStartTime() != null)
+		{
+			e.setStartTime(event.getStartTime());
+		}
+		e.setModifyDate(new Date());
+		
+		eventRepository.save(event);
 	}
 
 	
